@@ -1,0 +1,29 @@
+<?php
+/**
+ * Recolize GmbH
+ *
+ * @section LICENSE
+ * This source file is subject to the GNU General Public License Version 3 (GPLv3).
+ *
+ * @category Recolize
+ * @package Recolize_RecommendationEngine
+ * @author Recolize GmbH <service@recolize.com>
+ * @copyright since 2015 Recolize GmbH (http://www.recolize.com)
+ * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License Version 3 (GPLv3).
+ */
+?>
+<?php /** @var \Recolize\RecommendationEngine\Block\CheckoutSuccess $this */ ?>
+<?php if ($this->helper('Recolize\RecommendationEngine\Helper\Data')->isExtensionEnabled() === true): ?>
+    <?php $orderItems = $this->getOrder()->getAllItems(); ?>
+
+    <?php // \Magento\Checkout\Block\Onepage\Success is set cacheable=false, so no need to care for caching here. ?>
+    <script type="text/javascript">
+        var RecolizeParameters = RecolizeParameters || {};
+        RecolizeParameters['itemAction'] = 'sale';
+        RecolizeParameters['saleData'] = {};
+
+        <?php foreach ($orderItems as $orderItem): ?>
+            RecolizeParameters['saleData']['<?php echo $orderItem->getProductId() ?>'] = '<?php echo $orderItem->getRowTotal() ?>';
+        <?php endforeach; ?>
+    </script>
+<?php endif; ?>

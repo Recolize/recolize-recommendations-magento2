@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <recolize_recommendation_engine>
+            <general>
+                <enable_extension>1</enable_extension>
+            </general>
+            <product_feed>
+                <enable_export>1</enable_export>
+                <cron_schedule>34 3 * * *</cron_schedule>
+                <attributes_to_exclude>description</attributes_to_exclude>
+                <product_image_id>product_page_main_image</product_image_id>
+            </product_feed>
+        </recolize_recommendation_engine>
+    </default>
+</config>

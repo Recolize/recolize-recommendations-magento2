@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_cart_product_add_after">
+        <observer name="recolize_recommendation_engine_update_user_data_in_cookie" instance="Recolize\RecommendationEngine\Observer\UpdateUserDataInCookie" />
+    </event>
+    <event name="wishlist_add_product">
+        <observer name="recolize_recommendation_engine_update_user_data_in_cookie" instance="Recolize\RecommendationEngine\Observer\UpdateUserDataInCookie" />
+    </event>
+</config>

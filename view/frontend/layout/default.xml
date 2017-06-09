@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Recolize\RecommendationEngine\Block\JavascriptSnippet" name="recolize.recommendation.engine.javascript.snippet" template="Recolize_RecommendationEngine::javascript_snippet.phtml">
+                <block class="Recolize\RecommendationEngine\Block\Parameter" name="recolize.recommendation.engine.parameter" template="Recolize_RecommendationEngine::parameter.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

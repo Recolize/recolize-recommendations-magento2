@@ -1,0 +1,10 @@
+.idea
+.project
+*.sublime-project
+*.sublime-workspace
+*.tmproj
+*.bak
+*.swp
+*~.nib
+vendor
+composer.lock

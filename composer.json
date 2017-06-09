@@ -1,0 +1,35 @@
+{
+  "name": "recolize/module-recommendation-engine-magento2",
+  "description": "The Recolize Recommendation Engine as extension for Magento 2",
+  "version": "1.0.0",
+  "type": "magento2-module",
+  "keywords": [
+    "recolize",
+    "recommendation",
+    "magento"
+  ],
+  "homepage": "http://www.recolize.com",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Recolize GmbH",
+      "email": "service@recolize.com",
+      "homepage": "https://www.recolize.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "service@recolize.com"
+  },
+  "require": {
+    "magento/framework": "~100.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Recolize\\RecommendationEngine\\": ""
+    }
+  }
+}

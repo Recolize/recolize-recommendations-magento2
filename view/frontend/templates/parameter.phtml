@@ -1,0 +1,48 @@
+<?php
+/**
+ * Recolize GmbH
+ *
+ * @section LICENSE
+ * This source file is subject to the GNU General Public License Version 3 (GPLv3).
+ *
+ * @category Recolize
+ * @package Recolize_RecommendationEngine
+ * @author Recolize GmbH <service@recolize.com>
+ * @copyright since 2015 Recolize GmbH (http://www.recolize.com)
+ * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License Version 3 (GPLv3).
+ */
+?>
+<?php /** @var \Recolize\RecommendationEngine\Block\Parameter $this */ ?>
+<?php if ($this->helper('Recolize\RecommendationEngine\Helper\Data')->isExtensionEnabled() === true): ?>
+    <script type="text/javascript">
+        var RecolizeParameters = RecolizeParameters || {};
+        RecolizeParameters['User'] = RecolizeParameters['User'] || {};
+        RecolizeParameters['User']['status'] = '<?php echo $this->getDefaultUserStatus(); ?>';
+        RecolizeParameters['User']['group'] = '<?php echo $this->getDefaultUserGroup(); ?>';
+
+        try {
+            var cookieValue = document.cookie.match(new RegExp('<?php echo $this->getCookieName(); ?>=([^;]+)'));
+
+            if (cookieValue !== null) {
+                cookieValue = JSON.parse(decodeURIComponent((cookieValue[1]).replace(/\+/g, '%20')));
+
+                if (typeof cookieValue != 'undefined' && typeof cookieValue == 'object') {
+                    if (typeof cookieValue['User'] != 'undefined') {
+                        RecolizeParameters['User'] = cookieValue['User'];
+                    }
+                    
+                    if (typeof cookieValue['itemAction'] != 'undefined' && typeof cookieValue['clickedItemId'] != 'undefined'
+                        && ((typeof RecolizeParameters['specialPageType'] != 'undefined' && RecolizeParameters['specialPageType'] !== 'item-detail')
+                            || typeof RecolizeParameters['specialPageType'] == 'undefined')) {
+                        RecolizeParameters['itemAction'] = cookieValue['itemAction'];
+                        RecolizeParameters['clickedItemId'] = cookieValue['clickedItemId'];
+
+                        var cleanedRecolizeParameters = {};
+                        cleanedRecolizeParameters['User'] = RecolizeParameters['User'];
+                        document.cookie = '<?php echo $this->getCookieName(); ?>=' + encodeURIComponent(JSON.stringify(cleanedRecolizeParameters)) + '; path=/';
+                    }
+                }
+            }
+        } catch(exception) {}
+    </script>
+<?php endif; ?>
