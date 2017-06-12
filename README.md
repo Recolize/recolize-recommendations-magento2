@@ -3,7 +3,7 @@
 ## Getting Started
 
 Thank you very much for using our Recolize Recommendation Engine for Magento 2.
-Please find some installation advices below and more information on [https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area).
+Please find some installation advices below and more information on [https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
 
 ### Prerequisites
 
@@ -18,20 +18,18 @@ We recommend to proceed with the following preparational steps before you start 
 
 #### Installation with Composer (recommended)
 1.	In the root directory of your Magento 2 installation install the Recolize Recommendation Engine Extension via the following composer command:
-
-```
-composer require recolize/module-recommendation-engine-magento2
-```
+    ```
+    composer require recolize/module-recommendation-engine-magento2
+    ```
 
 2.	Afterwards activate the Magento 2 Extension with the following commands:
+    ```
+    bin/magento module:enable Recolize_RecommendationEngine
+    bin/magento setup:upgrade
+    bin/magento cache:flush
+    ```
 
-```
-bin/magento module:enable Recolize_RecommendationEngine
-bin/magento setup:upgrade
-bin/magento cache:flush
-```
-
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area), login at [https://tool.recolize.com](http://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login at [https://tool.recolize.com](http://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
@@ -41,13 +39,13 @@ The folder structure is exactly the same as in your Magento installation (app/co
 
 2.	Flush your Magento cache, e.g. in _System > Cache Management_ as well as the JavaScript-/CSS-Cache on the same page.
 
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area), login at [https://tool.recolize.com](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login at [https://tool.recolize.com](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
 ## Authors
 
-Recolize GmbH ([https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area)).
+Recolize GmbH ([https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area)).
 
 ## License
 
@@ -56,7 +54,7 @@ This project is licensed under the GPLv3 License - see the [LICENSE.txt](LICENSE
 ## Frequently Asked Questions
 
 ### I need help with the installation process
-For more information regarding the installation of the Magento extension please have a look at our FAQs at [https://www.recolize.com/en/faq](https://www.recolize.com/en/faq?utm_source=github&utm_medium=web&utm_campaign=GitHub Help Area).
+For more information regarding the installation of the Magento extension please have a look at our FAQs at [https://www.recolize.com/en/faq](https://www.recolize.com/en/faq?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
 
 ### How can I completely disable the extension if I am experiencing any problems?
 In case of an emergency you can easily disable the extension temporarily via the configuration setting in _Stores > Configuration > Recolize Recommendation Engine > Enable extension_.
