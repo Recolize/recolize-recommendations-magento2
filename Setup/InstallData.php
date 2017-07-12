@@ -56,12 +56,23 @@ class InstallData implements InstallDataInterface
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        $this->appState->setAreaCode('frontend');
-
         try {
-            $this->feed->generate();
+            // We use emulateAreaCode() method here to ensure clean reset after finish and to not interact with other
+            // setup scripts as setAreaCode() can only be called once.
+            $this->appState->emulateAreaCode(
+                \Magento\Framework\App\Area::AREA_FRONTEND,
+                array($this, 'generateFeed')
+            );
         } catch (\Exception $exception) {
             $this->logger->critical($exception->getMessage());
         }
+    }
+
+    /**
+     * @return array
+     */
+    public function generateFeed()
+    {
+        return $this->feed->generate();
     }
 }
