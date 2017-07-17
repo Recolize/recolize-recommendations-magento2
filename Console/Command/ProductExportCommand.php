@@ -27,6 +27,11 @@ class ProductExportCommand extends Command
     private $feed;
 
     /**
+     * @var \Magento\Framework\App\State
+     */
+    private $state;
+
+    /**
      * @param \Magento\Framework\App\State $state
      * @param \Recolize\RecommendationEngine\Model\Feed $feed
      */
@@ -34,9 +39,8 @@ class ProductExportCommand extends Command
         \Magento\Framework\App\State $state,
         \Recolize\RecommendationEngine\Model\Feed $feed
     ) {
+        $this->state = $state;
         $this->feed = $feed;
-
-        $state->setAreaCode('frontend');
 
         parent::__construct();
     }
@@ -66,6 +70,7 @@ class ProductExportCommand extends Command
         $storeId = $input->getArgument('store-id');
 
         try {
+            $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_FRONTEND);
             $generatedFilenames = $this->feed->generate($storeId);
         } catch (\Exception $e) {
             $output->writeln("<error>{$e->getMessage()}</error>");
@@ -74,7 +79,7 @@ class ProductExportCommand extends Command
         }
 
         if (empty($generatedFilenames) === true) {
-            $output->writeln("<comment>Recolize product feeds were NOT generated. Please check settings in Stores > Configuration > Recolize Recommendation Engine.</comment>");
+            $output->writeln("<comment>Recolize product feeds were NOT generated. Please check settings in Stores > Configuration > Recolize Recommendation Engine and Magento log files.</comment>");
         } else {
             $output->writeln("<info>Recolize product feeds were generated successfully: " . join(', ', $generatedFilenames) . "</info>");
         }
