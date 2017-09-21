@@ -49,11 +49,16 @@ class Price extends Standard implements ColumnInterface
     }
 
     /**
+     * Return the price value of the current product.
+     *
+     * We take the minimal price as for simple and virtual products this is identical to the final price, for
+     * configurables this is the price of the cheapest simple.
+     *
      * @return string
      */
     public function getValue()
     {
-        $price = $this->getProduct()->getFinalPrice();
+        $price = $this->getProduct()->getMinimalPrice();
 
         $specialPrice = $this->getProduct()->getData('special_price');
         if (empty($specialPrice) === false) {
