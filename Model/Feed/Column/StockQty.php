@@ -14,6 +14,7 @@
 
 namespace Recolize\RecommendationEngine\Model\Feed\Column;
 
+use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Recolize\RecommendationEngine\Model\Feed\ColumnInterface;
 
 class StockQty extends Standard implements ColumnInterface
@@ -45,22 +46,37 @@ class StockQty extends Standard implements ColumnInterface
      */
     public function getValue()
     {
-        if (empty($this->getStockItem()) === true) {
-            return 0;
+        if ($this->getProduct()->getTypeId() === Configurable::TYPE_CODE) {
+            $stockQuantity = 0;
+
+            $simpleProductCollection = $this->getProduct()->getTypeInstance()->getUsedProducts($this->getProduct());
+
+            foreach ($simpleProductCollection as $simpleProduct) {
+                if ($simpleProduct->isAvailable() === false) {
+                    continue;
+                }
+
+                $stockQuantity += $this->getStockItem($simpleProduct->getId())->getQty();
+            }
+
+            return $stockQuantity;
         }
 
-        return $this->getStockItem()->getQty();
+        return $this->getStockItem($this->getProduct()->getId())->getQty();
     }
 
     /**
      * Return the stock item model.
      *
+     * @param integer $productId
+     * 
      * @return \Magento\CatalogInventory\Api\Data\StockItemInterface|null
      */
-    private function getStockItem()
+    
+    private function getStockItem($productId)
     {
         try {
-            return $this->stockItemRepository->get($this->getProduct()->getId());
+            return $this->stockItemRepository->get($productId);
         } catch (\Exception $exception) {
             $this->logger->warning($exception->getMessage(), array('product_id' => $this->getProduct()->getId()));
         }

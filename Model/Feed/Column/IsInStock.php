@@ -40,30 +40,12 @@ class IsInStock extends Standard implements ColumnInterface
     }
 
     /**
+     * The isAvailable() method is used like e.g. on product detail pages.
+     *
      * @return string
      */
     public function getValue()
     {
-        if (empty($this->getStockItem()) === false && $this->getStockItem()->getIsInStock() === true) {
-            return 1;
-        }
-
-        return 0;
-    }
-
-    /**
-     * Return the stock item model.
-     *
-     * @return \Magento\CatalogInventory\Api\Data\StockItemInterface|null
-     */
-    private function getStockItem()
-    {
-        try {
-            return $this->stockItemRepository->get($this->getProduct()->getId());
-        } catch (\Exception $exception) {
-            $this->logger->warning($exception->getMessage(), array('product_id' => $this->getProduct()->getId()));
-        }
-
-        return null;
+        return (int)$this->getProduct()->isAvailable();
     }
 }
