@@ -16,8 +16,7 @@ namespace Recolize\RecommendationEngine\Helper;
 
 use Magento\Catalog\Model\Product;
 use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
-use Magento\GroupedProduct\Pricing\Price\FinalPrice;
-use Magento\Theme\Model\Indexer\Design\Config;
+use Magento\Catalog\Pricing\Price\FinalPrice;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
@@ -50,13 +49,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         }
 
         $minimumPrice = false;
-        $simpleProductCollection = $product->getTypeInstance()->getUsedProducts($product);
+        $simpleProductCollection = $product->getTypeInstance()->getSalableUsedProducts($product);
 
         foreach ($simpleProductCollection as $simpleProduct) {
-            if ($simpleProduct->isAvailable() === false) {
-                continue;
-            }
-
             $simpleProductPrice = $simpleProduct->getData($priceAttributeName);
 
             if ($priceAttributeName === FinalPrice::PRICE_CODE) {
