@@ -17,13 +17,13 @@ namespace Recolize\RecommendationEngine\Model\Feed\Column;
 use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Recolize\RecommendationEngine\Model\Feed\ColumnInterface;
 
-class Price extends Standard implements ColumnInterface
+class SpecialPrice extends Standard implements ColumnInterface
 {
     /**
      * @var \Recolize\RecommendationEngine\Helper\Data
      */
     private $dataHelper;
-    
+
     /**
      * @var \Magento\Catalog\Helper\Data
      */
@@ -57,21 +57,24 @@ class Price extends Standard implements ColumnInterface
     }
 
     /**
-     * Return the price value of the current product.
+     * Return the special price value of the current product.
      *
-     * For configurable products the minimum price has to be calculated by looking at the 
-     * prices of all used simples.
+     * For configurable products the minimum special price has to be calculated by looking at
+     * the final prices of all used simples to also consider the special price from and to dates.
      *
      * @return string
      */
     public function getValue()
     {
         if ($this->getProduct()->getTypeId() === Configurable::TYPE_CODE) {
-            $price = $this->dataHelper->getMinimumPriceForConfigurableProduct($this->getProduct(), 'price');
+            $price = $this->dataHelper->getMinimumPriceForConfigurableProduct($this->getProduct(), 'final_price');
         } else {
-            $price = $this->getProduct()->getPrice();
+            // We use getMinimalPrice() instead of getFinalPrice(), because getMinimalPrice() also recognizes an
+            // invalid special price time frame for the current timestamp. This works here as the minimal price is
+            // loaded with the product collection for all kinds of products.
+            $price = $this->getProduct()->getMinimalPrice();
         }
-
+        
         $price = $this->catalogHelper->getTaxPrice($this->getProduct(), $price, $this->isExportPriceIncludingTax());
 
         return $price;

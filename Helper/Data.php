@@ -14,6 +14,10 @@
 
 namespace Recolize\RecommendationEngine\Helper;
 
+use Magento\Catalog\Model\Product;
+use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
+use Magento\Catalog\Pricing\Price\FinalPrice;
+
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
@@ -27,5 +31,38 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             'recolize_recommendation_engine/general/enable_extension',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * Returns the minimum price for a configurable product by taking the lowest price
+     * of a used and available simple product.
+     *
+     * @param \Magento\Catalog\Model\Product $product
+     * @param string $priceAttributeName an attribute name like "price" or "final_price"
+     *
+     * @return boolean|integer false, if the minimum price could not be calculated
+     */
+    public function getMinimumPriceForConfigurableProduct(Product $product, $priceAttributeName)
+    {
+        if ($product->getTypeId() !== Configurable::TYPE_CODE) {
+            return false;
+        }
+
+        $minimumPrice = false;
+        $simpleProductCollection = $product->getTypeInstance()->getSalableUsedProducts($product);
+
+        foreach ($simpleProductCollection as $simpleProduct) {
+            $simpleProductPrice = $simpleProduct->getData($priceAttributeName);
+
+            if ($priceAttributeName === FinalPrice::PRICE_CODE) {
+                $simpleProductPrice = $simpleProduct->getPriceInfo()->getPrice(FinalPrice::PRICE_CODE)->getValue();
+            }
+
+            if ($minimumPrice === false || $simpleProductPrice < $minimumPrice) {
+                $minimumPrice = $simpleProductPrice;
+            }
+        }
+
+        return $minimumPrice;
     }
 }

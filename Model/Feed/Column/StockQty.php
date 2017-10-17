@@ -14,6 +14,7 @@
 
 namespace Recolize\RecommendationEngine\Model\Feed\Column;
 
+use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Recolize\RecommendationEngine\Model\Feed\ColumnInterface;
 
 class StockQty extends Standard implements ColumnInterface
@@ -45,24 +46,46 @@ class StockQty extends Standard implements ColumnInterface
      */
     public function getValue()
     {
-        if (empty($this->getStockItem()) === true) {
+        if ($this->getProduct()->getTypeId() === Configurable::TYPE_CODE) {
+            $stockQuantity = 0;
+
+            $simpleProductCollection = $this->getProduct()->getTypeInstance()->getSalableUsedProducts($this->getProduct());
+
+            foreach ($simpleProductCollection as $simpleProduct) {
+                $stockItemSimpleProduct = $this->getStockItem($simpleProduct->getId());
+                if (empty($stockItemSimpleProduct) === true) {
+                    continue;
+                }
+
+                $stockQuantity += $stockItemSimpleProduct->getQty();
+            }
+
+            return $stockQuantity;
+        }
+
+        $stockItem = $this->getStockItem($this->getProduct()->getId());
+
+        if (empty($stockItem) === true) {
             return 0;
         }
 
-        return $this->getStockItem()->getQty();
+        return $stockItem->getQty();
     }
 
     /**
      * Return the stock item model.
      *
+     * @param integer $productId
+     * 
      * @return \Magento\CatalogInventory\Api\Data\StockItemInterface|null
      */
-    private function getStockItem()
+    
+    private function getStockItem($productId)
     {
         try {
-            return $this->stockItemRepository->get($this->getProduct()->getId());
+            return $this->stockItemRepository->get($productId);
         } catch (\Exception $exception) {
-            $this->logger->warning($exception->getMessage(), array('product_id' => $this->getProduct()->getId()));
+            $this->logger->warning($exception->getMessage(), array('product_id' => $productId));
         }
 
         return null;
