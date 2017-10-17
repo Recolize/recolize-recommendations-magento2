@@ -49,20 +49,27 @@ class StockQty extends Standard implements ColumnInterface
         if ($this->getProduct()->getTypeId() === Configurable::TYPE_CODE) {
             $stockQuantity = 0;
 
-            $simpleProductCollection = $this->getProduct()->getTypeInstance()->getUsedProducts($this->getProduct());
+            $simpleProductCollection = $this->getProduct()->getTypeInstance()->getSalableUsedProducts($this->getProduct());
 
             foreach ($simpleProductCollection as $simpleProduct) {
-                if ($simpleProduct->isAvailable() === false) {
+                $stockItemSimpleProduct = $this->getStockItem($simpleProduct->getId());
+                if (empty($stockItemSimpleProduct) === true) {
                     continue;
                 }
 
-                $stockQuantity += $this->getStockItem($simpleProduct->getId())->getQty();
+                $stockQuantity += $stockItemSimpleProduct->getQty();
             }
 
             return $stockQuantity;
         }
 
-        return $this->getStockItem($this->getProduct()->getId())->getQty();
+        $stockItem = $this->getStockItem($this->getProduct()->getId());
+
+        if (empty($stockItem) === true) {
+            return 0;
+        }
+
+        return $stockItem->getQty();
     }
 
     /**
@@ -78,7 +85,7 @@ class StockQty extends Standard implements ColumnInterface
         try {
             return $this->stockItemRepository->get($productId);
         } catch (\Exception $exception) {
-            $this->logger->warning($exception->getMessage(), array('product_id' => $this->getProduct()->getId()));
+            $this->logger->warning($exception->getMessage(), array('product_id' => $productId));
         }
 
         return null;

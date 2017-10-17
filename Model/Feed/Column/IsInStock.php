@@ -42,7 +42,7 @@ class IsInStock extends Standard implements ColumnInterface
     /**
      * The isAvailable() method is used like e.g. on product detail pages.
      *
-     * @return string
+     * @return integer 1, if the product is available
      */
     public function getValue()
     {

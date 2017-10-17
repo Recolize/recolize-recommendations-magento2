@@ -180,7 +180,6 @@ class Feed
                 // An additional check for the availability is added as workaround for the Magento core bug
                 // https://github.com/magento/magento2/issues/8566 which causes the productCollection->addIsInStockFilterToCollection()
                 // method to not work correctly and also return out of stock products.
-                $test = $product->isAvailable();
                 if ($product->isAvailable() === false) {
                     continue;
                 }
