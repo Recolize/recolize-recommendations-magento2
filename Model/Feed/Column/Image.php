@@ -36,7 +36,7 @@ class Image extends Standard implements ColumnInterface
      */
     public function __construct(
         \Magento\Catalog\Model\Product $product,
-        $attribute,
+        \Magento\Framework\DataObject $attribute,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Catalog\Helper\ImageFactory $imageHelperFactory,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
