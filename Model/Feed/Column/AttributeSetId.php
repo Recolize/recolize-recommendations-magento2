@@ -25,12 +25,12 @@ class AttributeSetId extends Standard implements ColumnInterface
 
     /**
      * @param \Magento\Catalog\Model\Product $product
-     * @param $attribute
+     * @param \Magento\Framework\DataObject $attribute
      * @param \Magento\Eav\Api\AttributeSetRepositoryInterface $attributeSet
      */
     public function __construct(
         \Magento\Catalog\Model\Product $product,
-        $attribute,
+        \Magento\Framework\DataObject $attribute,
         \Magento\Eav\Api\AttributeSetRepositoryInterface $attributeSet,
         \Psr\Log\LoggerInterface $logger
     ) {

@@ -16,7 +16,7 @@
 <?php if ($this->helper('Recolize\RecommendationEngine\Helper\Data')->isExtensionEnabled() === true): ?>
     <script type="text/javascript">
         var RecolizeParameters = RecolizeParameters || {};
-        RecolizeParameters['User'] = RecolizeParameters['User'] || {};
+        RecolizeParameters['User'] = RecolizeParameters['User'] || {};
         RecolizeParameters['User']['status'] = '<?php echo $this->getDefaultUserStatus(); ?>';
         RecolizeParameters['User']['group'] = '<?php echo $this->getDefaultUserGroup(); ?>';
 
