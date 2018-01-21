@@ -32,7 +32,7 @@ class StockQty extends Standard implements ColumnInterface
      */
     public function __construct(
         \Magento\Catalog\Model\Product $product,
-        $attribute,
+        \Magento\Framework\DataObject $attribute,
         \Psr\Log\LoggerInterface $logger,
         \Magento\CatalogInventory\Model\Stock\StockItemRepository $stockItemRepository
     ) {

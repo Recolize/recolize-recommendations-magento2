@@ -25,12 +25,12 @@ class IsInStock extends Standard implements ColumnInterface
 
     /**
      * @param \Magento\Catalog\Model\Product $product
-     * @param $attribute
+     * @param \Magento\Framework\DataObject $attribute
      * @param \Magento\CatalogInventory\Model\Stock\StockItemRepository $stockItemRepository
      */
     public function __construct(
         \Magento\Catalog\Model\Product $product,
-        $attribute,
+        \Magento\Framework\DataObject $attribute,
         \Psr\Log\LoggerInterface $logger,
         \Magento\CatalogInventory\Model\Stock\StockItemRepository $stockItemRepository
     ) {
