@@ -9,7 +9,7 @@
     "magento"
   ],
   "homepage": "http://www.recolize.com",
-  "license": "GPL",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Recolize GmbH",
