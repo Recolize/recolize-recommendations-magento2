@@ -53,9 +53,19 @@ class Standard implements ColumnInterface
      */
     public function getValue()
     {
-        $attributeValue = $this->getProduct()->getData($this->getAttribute()->getAttributeCode());
-        if ($this->getAttribute()->getBackendType() === 'multiselect') {
-            $attributeValue = $this->getProduct()->getAttributeText($this->getAttribute()->getAttributeCode());
+        try {
+            switch ($this->getAttribute()->getFrontendInput()) {
+                case 'select':
+                    $attributeValue = (string) $this->getProduct()->getAttributeText($this->getAttribute()->getAttributeCode());
+                    break;
+                case 'multiselect':
+                    $attributeValue = $this->getProduct()->getResource()->getAttribute($this->getAttribute()->getAttributeCode())->getFrontend()->getValue($this->getProduct());
+                    break;
+                default:
+                    $attributeValue = $this->getProduct()->getData($this->getAttribute()->getAttributeCode());
+            }
+        } catch (\Exception $exception) {
+            $attributeValue = $this->getProduct()->getData($this->getAttribute()->getAttributeCode());
         }
 
         return $attributeValue;
