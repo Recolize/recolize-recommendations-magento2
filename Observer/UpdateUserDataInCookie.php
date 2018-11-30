@@ -61,7 +61,7 @@ class UpdateUserDataInCookie implements ObserverInterface
         $this->cookieUserData
             ->setUserId($this->user->getCustomerId())
             ->setStatus($this->user->getCustomerStatus())
-            ->setGroup(($this->user->getCustomerGroup()));
+            ->setGroup($this->user->getCustomerGroup());
 
         $product = $observer->getEvent()->getProduct();
         if (empty($product) === false) {

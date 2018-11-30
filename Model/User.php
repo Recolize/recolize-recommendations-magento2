@@ -31,6 +31,11 @@ class User
     const STATUS_RETURNING_CUSTOMER = 'returning_customer';
 
     /**
+     * @var string
+     */
+    const IDENTIFIER_EMAIL = 'email';
+
+    /**
      * @var \Magento\Customer\Model\Session\Proxy
      */
     private $customerSession;
@@ -56,24 +61,32 @@ class User
     private $searchCriteriaBuilder;
 
     /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
+    private $scopeConfig;
+
+    /**
      * @param \Magento\Customer\Model\Session\Proxy $customerSession
      * @param \Magento\Checkout\Model\Session\Proxy $checkoutSession
      * @param \Magento\Customer\Api\GroupRepositoryInterface $groupRepository
      * @param \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
      * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
     public function __construct(
         \Magento\Customer\Model\Session\Proxy $customerSession,
         \Magento\Checkout\Model\Session\Proxy $checkoutSession,
         \Magento\Customer\Api\GroupRepositoryInterface $groupRepository,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
-        \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+        \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
     ) {
         $this->customerSession = $customerSession;
         $this->checkoutSession = $checkoutSession;
         $this->groupRepository = $groupRepository;
         $this->orderRepository = $orderRepository;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -93,7 +106,12 @@ class User
      */
     public function getCustomerId()
     {
-        $internalCustomerId = $this->getInternalCustomerId();
+        $userIdentifier = $this->scopeConfig->getValue('recolize_recommendation_engine/general/user_identifier');
+        if ($userIdentifier === self::IDENTIFIER_EMAIL) {
+            $internalCustomerId = $this->getCustomerEmail();
+        } else {
+            $internalCustomerId = $this->getInternalCustomerId();
+        }
 
         if (empty($internalCustomerId) === true) {
             return $internalCustomerId;
@@ -162,6 +180,14 @@ class User
     private function getInternalCustomerId()
     {
         return $this->customerSession->getId();
+    }
+
+    /**
+     * @return string
+     */
+    private function getCustomerEmail()
+    {
+        return $this->customerSession->getCustomer()->getEmail();
     }
 
     /**
