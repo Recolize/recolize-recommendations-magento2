@@ -4,6 +4,7 @@
         <recolize_recommendation_engine>
             <general>
                 <enable_extension>1</enable_extension>
+                <user_identifier>email</user_identifier>
             </general>
             <product_feed>
                 <enable_export>1</enable_export>
