@@ -1,14 +1,14 @@
 {
   "name": "recolize/module-recommendation-engine-magento2",
   "description": "The Recolize Recommendation Engine as extension for Magento 2",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "magento2-module",
   "keywords": [
     "recolize",
     "recommendation",
     "magento"
   ],
-  "homepage": "http://www.recolize.com",
+  "homepage": "https://www.recolize.com",
   "license": "GPL-3.0-or-later",
   "authors": [
     {

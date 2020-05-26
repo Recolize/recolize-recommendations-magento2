@@ -7,9 +7,9 @@ Please find some installation advices below and more information on [https://www
 
 ### Prerequisites
 
-Recolize Recommendation Engine is fully compatible with Magento versions starting from 2.0 (Community and Enterprise Editions).
+Recolize Recommendation Engine is fully compatible with Magento versions starting from 2.1 (Community/Open Source and Enterprise/Commerce Editions).
 
-Please note that the Magento cronjob should be set up correctly to use all features of this extension without any limitations (see http://devdocs.magento.com/guides/v2.0/config-guide/cli/config-cli-subcommands-cron.html).
+Please note that the [Magento cronjob](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-cron.html) should be set up correctly to use all features of this extension without any limitations.
 
 ### Installation
 
@@ -29,7 +29,7 @@ We recommend to proceed with the following preparational steps before you start 
     bin/magento cache:flush
     ```
 
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login at [https://tool.recolize.com](http://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
@@ -39,7 +39,7 @@ The folder structure is exactly the same as in your Magento installation (app/co
 
 2.	Flush your Magento cache, e.g. in _System > Cache Management_ as well as the JavaScript-/CSS-Cache on the same page.
 
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login at [https://tool.recolize.com](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
@@ -54,7 +54,7 @@ This project is licensed under the GPLv3 License - see the [LICENSE.txt](LICENSE
 ## Frequently Asked Questions
 
 ### I need help with the installation process
-For more information regarding the installation of the Magento extension please have a look at our FAQs at [https://www.recolize.com/en/faq](https://www.recolize.com/en/faq?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
+For more information regarding the installation of the Magento extension please have a look at [our FAQs](https://www.recolize.com/en/faq?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
 
 ### How can I completely disable the extension if I am experiencing any problems?
 In case of an emergency you can easily disable the extension temporarily via the configuration setting in _Stores > Configuration > Recolize Recommendation Engine > Enable extension_.
