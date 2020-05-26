@@ -41,7 +41,7 @@ class User
     private $customerSession;
 
     /**
-     * @var \Magento\Checkout\Model\Session\Proxy
+     * @var \Magento\Checkout\Model\Session
      */
     private $checkoutSession;
 
@@ -66,16 +66,16 @@ class User
     private $scopeConfig;
 
     /**
-     * @param \Magento\Customer\Model\Session\Proxy $customerSession
-     * @param \Magento\Checkout\Model\Session\Proxy $checkoutSession
+     * @param \Magento\Customer\Model\Session $customerSession
+     * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Customer\Api\GroupRepositoryInterface $groupRepository
      * @param \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
      * @param \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      */
     public function __construct(
-        \Magento\Customer\Model\Session\Proxy $customerSession,
-        \Magento\Checkout\Model\Session\Proxy $checkoutSession,
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Customer\Api\GroupRepositoryInterface $groupRepository,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
         \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
