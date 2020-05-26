@@ -19,18 +19,18 @@ use Magento\Framework\View\Element\Template;
 class CheckoutSuccess extends Template
 {
     /**
-     * @var \Magento\Checkout\Model\Session\Proxy
+     * @var \Magento\Checkout\Model\Session
      */
     private $session;
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Magento\Checkout\Model\Session\Proxy $session
+     * @param \Magento\Checkout\Model\Session $session
      * @param array $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Checkout\Model\Session\Proxy $session,
+        \Magento\Checkout\Model\Session $session,
         array $data
     ) {
         $this->session = $session;

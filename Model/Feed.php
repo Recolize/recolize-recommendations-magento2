@@ -123,7 +123,9 @@ class Feed
      */
     public function generate($storeId = null)
     {
+        // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged,Magento2.Functions.DiscouragedFunction.Discouraged
         @set_time_limit(0);
+        // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged,Magento2.Functions.DiscouragedFunction.Discouraged
         @ini_set('memory_limit', '-1');
 
         if (empty($storeId) === true) {
@@ -210,6 +212,7 @@ class Feed
      */
     public function getFeedFilename(\Magento\Store\Api\Data\StoreInterface $store)
     {
+        // phpcs:ignore Magento2.Security.InsecureFunction.FoundWithAlternative
         return sprintf($this->feedFilenameTemplate, md5($store->getId() . '#' . $store->getName() . '#' . $store->getCode()) . '-' . $store->getCode());
     }
 
