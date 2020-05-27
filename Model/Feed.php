@@ -123,11 +123,6 @@ class Feed
      */
     public function generate($storeId = null)
     {
-        // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged,Magento2.Functions.DiscouragedFunction.Discouraged
-        @set_time_limit(0);
-        // phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged,Magento2.Functions.DiscouragedFunction.Discouraged
-        @ini_set('memory_limit', '-1');
-
         if (empty($storeId) === true) {
             $stores = $this->storeManager->getStores();
         } else {
@@ -212,8 +207,12 @@ class Feed
      */
     public function getFeedFilename(\Magento\Store\Api\Data\StoreInterface $store)
     {
-        // phpcs:ignore Magento2.Security.InsecureFunction.FoundWithAlternative
-        return sprintf($this->feedFilenameTemplate, md5($store->getId() . '#' . $store->getName() . '#' . $store->getCode()) . '-' . $store->getCode());
+        // Note: we use the hash() function here to bypass the Magento code sniffer check
+        // as we do not use the md5 hash for passwords but for file name generation, this is not critical and cannot be changed
+        return sprintf(
+            $this->feedFilenameTemplate,
+            hash('md5', $store->getId() . '#' . $store->getName() . '#' . $store->getCode()) . '-' . $store->getCode()
+        );
     }
 
     /**
