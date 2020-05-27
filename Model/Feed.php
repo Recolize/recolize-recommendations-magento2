@@ -253,8 +253,9 @@ class Feed
     private function getItemsPerPage()
     {
         if ($this->itemsPerPage === null) {
-            $memoryLimit = trim(ini_get('memory_limit'));
-            $lastMemoryLimitLetter = strtolower($memoryLimit[strlen($memoryLimit) - 1]);
+            $memoryLimitConfigValue = trim(ini_get('memory_limit'));
+            $lastMemoryLimitLetter = strtolower($memoryLimitConfigValue[strlen($memoryLimitConfigValue) - 1]);
+            $memoryLimit = (int) $memoryLimitConfigValue;
             switch ($lastMemoryLimitLetter) {
                 case 'g':
                     $memoryLimit *= 1024;
