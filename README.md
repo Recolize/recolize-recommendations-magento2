@@ -19,7 +19,7 @@ We recommend to proceed with the following preparational steps before you start 
 #### Installation with Composer (recommended)
 1.	In the root directory of your Magento 2 installation install the Recolize Recommendation Engine Extension via the following composer command:
     ```
-    composer require --no-dev recolize/module-recommendation-engine-magento2
+    composer require --update-no-dev  recolize/module-recommendation-engine-magento2
     ```
 
 2.	Afterwards activate the Magento 2 Extension with the following commands:
