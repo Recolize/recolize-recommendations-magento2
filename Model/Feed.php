@@ -231,13 +231,12 @@ class Feed
     }
 
     /**
-     * Finish the feed generation, i.e. stop the store emulation and close the csv writer.
+     * Finish the feed generation, i.e. stop the store emulation.
      *
      * @return $this
      */
     private function finishExport()
     {
-        $this->writer->close();
         $this->appEmulation->stopEnvironmentEmulation();
 
         return $this;

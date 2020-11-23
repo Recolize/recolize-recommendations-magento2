@@ -38,30 +38,27 @@ class Writer extends Csv
     private $filename;
 
     /**
-     * @var \Magento\Framework\App\Filesystem\DirectoryList
-     */
-    private $directoryList;
-
-    /**
      * @param \Magento\Framework\Filesystem $filesystem
-     * @param \Magento\Framework\App\Filesystem\DirectoryList $directoryList
-     * @param $filename
+     * @param string $filename
      * @param null $destination
      */
     public function __construct(
         \Magento\Framework\Filesystem $filesystem,
-        \Magento\Framework\App\Filesystem\DirectoryList $directoryList,
         $filename,
         $destination = null
     ) {
-        $this->directoryList = $directoryList;
         $this->filename = $filename;
 
-        // @see \Magento\ImportExport\Model\Export\Adapter\Csv::__construct()
-        register_shutdown_function([$this, 'destruct']);
-
-        // We use a temporary filename for file generation and do the rename in $this::close().
+        // We use a temporary filename for file generation and do the rename in $this::destruct().
         AbstractAdapter::__construct($filesystem, $this->filename . self::TMP_FILENAME_EXTENSION, DirectoryList::MEDIA);
+    }
+
+    /**
+     * This method only exists for compatibility with Magento 2.1 and 2.2.
+     */
+    public function __destruct()
+    {
+        $this->destruct();
     }
 
     /**
@@ -69,12 +66,11 @@ class Writer extends Csv
      *
      * Actually this is renaming the temporary filename to the real one.
      *
-     * @return $this
+     * @return void
      */
-    public function close()
+    public function destruct()
     {
         $this->_directoryHandle->renameFile($this->filename . self::TMP_FILENAME_EXTENSION, $this->filename);
-
-        return $this;
+        parent::destruct();
     }
 }
