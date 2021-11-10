@@ -1,7 +1,7 @@
 {
   "name": "recolize/module-recommendation-engine-magento2",
   "description": "The Recolize Recommendation Engine as extension for Magento 2",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "type": "magento2-module",
   "keywords": [
     "recolize",
@@ -35,8 +35,8 @@
     }
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master",
-    "magento/magento-coding-standard": "^5.0"
+    "roave/security-advisories": "dev-latest",
+    "magento/magento-coding-standard": "^15.0"
   },
   "scripts": {
     "post-install-cmd": [
