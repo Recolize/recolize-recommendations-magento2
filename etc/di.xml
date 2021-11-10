@@ -13,9 +13,17 @@
             <argument name="namespace" xsi:type="string">recolize</argument>
         </arguments>
     </virtualType>
+
     <type name="Recolize\RecommendationEngine\Model\Session">
         <arguments>
             <argument name="storage" xsi:type="object">Recolize\RecommendationEngine\Model\Session\Storage</argument>
+        </arguments>
+    </type>
+
+    <type name="Recolize\RecommendationEngine\Console\Command\ProductExportCommand">
+        <arguments>
+            <argument name="state" xsi:type="object">Magento\Framework\App\State\Proxy</argument>
+            <argument name="feed" xsi:type="object">Recolize\RecommendationEngine\Model\Feed\Proxy</argument>
         </arguments>
     </type>
 </config>

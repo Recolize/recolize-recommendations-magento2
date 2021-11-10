@@ -21,20 +21,12 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class ProductExportCommand extends Command
 {
-    /**
-     * @var \Recolize\RecommendationEngine\Model\Feed
-     */
+    /** @var \Recolize\RecommendationEngine\Model\Feed */
     private $feed;
 
-    /**
-     * @var \Magento\Framework\App\State
-     */
+    /** @var \Magento\Framework\App\State */
     private $state;
 
-    /**
-     * @param \Magento\Framework\App\State $state
-     * @param \Recolize\RecommendationEngine\Model\Feed $feed
-     */
     public function __construct(
         \Magento\Framework\App\State $state,
         \Recolize\RecommendationEngine\Model\Feed $feed
@@ -59,9 +51,6 @@ class ProductExportCommand extends Command
 
     /**
      * Triggers the feed generation.
-     *
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return integer|null
      */
