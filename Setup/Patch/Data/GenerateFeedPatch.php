@@ -12,64 +12,76 @@
  * @license http://opensource.org/licenses/GPL-3.0 GNU General Public License Version 3 (GPLv3).
  */
 
-namespace Recolize\RecommendationEngine\Setup;
+namespace Recolize\RecommendationEngine\Setup\Patch\Data;
 
-use Magento\Framework\Setup\InstallDataInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class InstallData implements InstallDataInterface
+class GenerateFeedPatch implements DataPatchInterface
 {
-    /**
-     * @var \Recolize\RecommendationEngine\Model\Feed
-     */
+    /** @var ModuleDataSetupInterface */
+    private $moduleDataSetup;
+
+    /** @var \Recolize\RecommendationEngine\Model\Feed */
     private $feed;
 
-    /**
-     * @var \Magento\Framework\App\State
-     */
+    /** @var \Magento\Framework\App\State */
     private $appState;
 
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
+    /** @var \Psr\Log\LoggerInterface */
     private $logger;
 
-    /**
-     * @param \Recolize\RecommendationEngine\Model\Feed $feed
-     * @param \Magento\Framework\App\State $appState
-     * @param \Psr\Log\LoggerInterface $logger
-     */
     public function __construct(
+        ModuleDataSetupInterface $moduleDataSetup,
         \Recolize\RecommendationEngine\Model\Feed $feed,
         \Magento\Framework\App\State $appState,
         \Psr\Log\LoggerInterface $logger
     ) {
+        $this->moduleDataSetup = $moduleDataSetup;
         $this->feed = $feed;
         $this->appState = $appState;
         $this->logger = $logger;
     }
 
     /**
-     * @param \Magento\Framework\Setup\ModuleDataSetupInterface $setup
-     * @param \Magento\Framework\Setup\ModuleContextInterface $context
+     * @inheritdoc
      */
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    public function apply()
     {
+        $this->moduleDataSetup->getConnection()->startSetup();
+
         try {
             // We use emulateAreaCode() method here to ensure clean reset after finish and to not interact with other
             // setup scripts as setAreaCode() can only be called once.
             $this->appState->emulateAreaCode(
                 \Magento\Framework\App\Area::AREA_FRONTEND,
-                array($this, 'generateFeed')
+                [$this, 'generateFeed']
             );
         } catch (\Exception $exception) {
             $this->logger->critical($exception->getMessage());
         }
+
+        $this->moduleDataSetup->getConnection()->endSetup();
     }
 
     /**
-     * @return array
+     * @inheritdoc
+     */
+    public static function getDependencies()
+    {
+        return [];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getAliases()
+    {
+        return [];
+    }
+
+    /**
+     * @return array|string[]
      */
     public function generateFeed()
     {
