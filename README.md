@@ -7,7 +7,7 @@ Please find some installation advices below and more information on [https://www
 
 ### Prerequisites
 
-Recolize Recommendation Engine is fully compatible with Magento versions starting from 2.1 (Community/Open Source and Enterprise/Commerce Editions).
+Recolize Recommendation Engine is fully compatible with Magento versions starting from 2.3 (Community/Open Source and Enterprise/Commerce Editions).
 
 Please note that the [Magento cronjob](https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-cron.html) should be set up correctly to use all features of this extension without any limitations.
 
