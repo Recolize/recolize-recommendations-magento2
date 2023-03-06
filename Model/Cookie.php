@@ -14,6 +14,7 @@
 
 namespace Recolize\RecommendationEngine\Model;
 
+use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Framework\Stdlib\Cookie\CookieMetadataFactory;
 use Magento\Framework\Stdlib\Cookie\PhpCookieManager;
 use Magento\Framework\Stdlib\CookieManagerInterface;
@@ -21,11 +22,7 @@ use Recolize\RecommendationEngine\Model\Cookie\UserData;
 
 class Cookie
 {
-    /**
-     * The cookie name.
-     *
-     * @var string
-     */
+    /** @var string */
     const COOKIE_NAME = 'recolize_parameter';
 
     /**
@@ -35,16 +32,23 @@ class Cookie
      */
     const COOKIE_LIFETIME = PhpCookieManager::EXPIRE_AT_END_OF_SESSION_TIME;
 
-    /**
-     * @param CookieManagerInterface $cookieManager
-     * @param CookieMetadataFactory $cookieMetadataFactory
-     */
+    /** @var \Magento\Framework\Stdlib\CookieManagerInterface */
+    private $cookieManager;
+
+    /** @var \Magento\Framework\Stdlib\Cookie\CookieMetadataFactory */
+    private $cookieMetadataFactory;
+
+    /** @var \Magento\Framework\Serialize\SerializerInterface */
+    private $serializer;
+
     public function __construct(
         CookieManagerInterface $cookieManager,
-        CookieMetadataFactory $cookieMetadataFactory
+        CookieMetadataFactory $cookieMetadataFactory,
+        SerializerInterface $serializer
     ) {
         $this->cookieManager = $cookieManager;
         $this->cookieMetadataFactory = $cookieMetadataFactory;
+        $this->serializer = $serializer;
     }
 
     /**
@@ -69,16 +73,16 @@ class Cookie
     private function save(array $additionalData)
     {
         try {
-            $cookieValue = \Zend_Json::decode($this->get());
+            $cookieValue = $this->serializer->unserialize($this->get());
         } catch (\Exception $exception) {
         }
 
         try {
             if (empty($cookieValue) === true) {
-                $cookieValue = array();
+                $cookieValue = [];
             }
 
-            $cookieValue = \Zend_Json::encode(array_replace($cookieValue, $additionalData));
+            $cookieValue = $this->serializer->serialize(array_replace($cookieValue, $additionalData));
             $this->set($cookieValue);
         } catch (\Exception $exception) {}
 
