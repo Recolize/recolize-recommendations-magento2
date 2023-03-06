@@ -8,6 +8,12 @@
         </arguments>
     </type>
 
+    <type name="Recolize\RecommendationEngine\Model\Cookie">
+        <arguments>
+            <argument name="serializer" xsi:type="object">Magento\Framework\Serialize\Serializer\Json</argument>
+        </arguments>
+    </type>
+
     <virtualType name="Recolize\RecommendationEngine\Model\Session\Storage" type="Magento\Framework\Session\Storage">
         <arguments>
             <argument name="namespace" xsi:type="string">recolize</argument>
