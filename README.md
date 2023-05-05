@@ -3,7 +3,7 @@
 ## Getting Started
 
 Thank you very much for using our Recolize Recommendation Engine for Magento 2.
-Please find some installation advices below and more information on [https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
+Please find some installation advices below and more information on [our website](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area).
 
 ### Prerequisites
 
@@ -29,23 +29,23 @@ We recommend to proceed with the following preparational steps before you start 
     bin/magento cache:flush
     ```
 
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	[Register for free](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
 #### Installation without Composer (if composer is not available)
-1.	Unpack the setup package Recolize_Recommendation_*.zip and upload the unpacked contents into the root directory of your Magento installation (for example via FTP).
+1.	Unpack the setup package `Recolize_Recommendation_*.zip` and upload the unpacked contents into the root directory of your Magento installation (for example via FTP).
 The folder structure is exactly the same as in your Magento installation (app/code). In case of a fresh module installation no files will be overwritten.
 
 2.	Flush your Magento cache, e.g. in _System > Cache Management_ as well as the JavaScript-/CSS-Cache on the same page.
 
-3.	Register for free at [https://www.recolize.com/en/register](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
+3.	[Register for free](https://www.recolize.com/en/register?utm_source=github&utm_medium=web&utm_campaign=github-help-area), login into [Recolize Tool](https://tool.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area) and create a new domain with the product feed url that is displayed in _Stores > Configuration > Recolize Recommendation Engine > Recolize Product Feed Settings_.
 
 4.	Copy the JavaScript snippet code from the domain configuration into the appropriate Magento setting at _Stores > Configuration > Recolize Recommendation Engine_.
 
 ## Authors
 
-Recolize GmbH ([https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area)).
+Recolize GmbH ([https://www.recolize.com](https://www.recolize.com/?utm_source=github&utm_medium=web&utm_campaign=github-help-area))
 
 ## License
 
