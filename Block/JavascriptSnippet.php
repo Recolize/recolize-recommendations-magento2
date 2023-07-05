@@ -20,15 +20,13 @@ class JavascriptSnippet extends Template
 {
     /**
      * Return the JavaScript snippet code without the <script> tags.
-     *
-     * @return string
      */
-    public function getJavascriptSnippetCode()
+    public function getJavascriptSnippetCode(): string
     {
         return str_replace(
-            array('<script type="text/javascript">//<![CDATA[', '//]]></script>'),
+            ['<script type="text/javascript">//<![CDATA[', '//]]></script>'],
             '',
-            $this->_scopeConfig->getValue('recolize_recommendation_engine/general/javascript_snippet', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)
+            (string)$this->_scopeConfig->getValue('recolize_recommendation_engine/general/javascript_snippet', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)
         );
     }
 }
