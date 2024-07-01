@@ -1,0 +1,13 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	level: 6
+	paths:
+		- Block
+		- Console
+		- Cron
+		- Helper
+		- Model
+		- Observer
+		- Setup

@@ -1,0 +1,256 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Block\\\\CategoryView\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Block/CategoryView.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Block\\\\CheckoutSuccess\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Block/CheckoutSuccess.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Block\\\\Parameter\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Block/Parameter.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Block\\\\ProductView\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Block/ProductView.php
+
+		-
+			message: "#^Call to an undefined method Magento\\\\Catalog\\\\Model\\\\Product\\\\Type\\\\AbstractType\\:\\:getSalableUsedProducts\\(\\)\\.$#"
+			count: 1
+			path: Helper/Data.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Cookie\\:\\:save\\(\\) has parameter \\$additionalData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Cookie.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Cookie\\\\UserData\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Cookie/UserData.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\:\\:generate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Feed.php
+
+		-
+			message: "#^Parameter \\#3 \\$scopeCode of method Magento\\\\Framework\\\\App\\\\Config\\\\ScopeConfigInterface\\:\\:isSetFlag\\(\\) expects int\\|string\\|null, Magento\\\\Store\\\\Api\\\\Data\\\\StoreInterface given\\.$#"
+			count: 1
+			path: Model/Feed.php
+
+		-
+			message: "#^Use service contracts to persist entities in favour of Magento\\\\Store\\\\Model\\\\Store\\:\\:load\\(\\) method$#"
+			count: 1
+			path: Model/Feed.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\AttributeSetId\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/AttributeSetId.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\AttributeSetId\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/AttributeSetId.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with object will always evaluate to false\\.$#"
+			count: 1
+			path: Model/Feed/Column/CategoryIds.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\CategoryIds\\:\\:getValue\\(\\) should return string but returns object\\.$#"
+			count: 1
+			path: Model/Feed/Column/CategoryIds.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\CategoryIds\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/CategoryIds.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\CategoryIds\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/CategoryIds.php
+
+		-
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
+			count: 1
+			path: Model/Feed/Column/CategoryIds.php
+
+		-
+			message: "#^Parameter \\#1 \\$file of method Magento\\\\Catalog\\\\Helper\\\\Image\\:\\:setImageFile\\(\\) expects string, object given\\.$#"
+			count: 1
+			path: Model/Feed/Column/Image.php
+
+		-
+			message: "#^Parameter \\#3 \\$scopeCode of method Magento\\\\Framework\\\\App\\\\Config\\\\ScopeConfigInterface\\:\\:getValue\\(\\) expects int\\|string\\|null, Magento\\\\Store\\\\Model\\\\Store given\\.$#"
+			count: 1
+			path: Model/Feed/Column/Image.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Image\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Image.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Image\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Image.php
+
+		-
+			message: "#^Property Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\IsInStock\\:\\:\\$stockItemRepository is never read, only written\\.$#"
+			count: 1
+			path: Model/Feed/Column/IsInStock.php
+
+		-
+			message: "#^Return type \\(int\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\IsInStock\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/IsInStock.php
+
+		-
+			message: "#^Return type \\(int\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\IsInStock\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/IsInStock.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Price\\:\\:getValue\\(\\) should return string but returns float\\.$#"
+			count: 1
+			path: Model/Feed/Column/Price.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Price\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Price.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Price\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Price.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\SpecialPrice\\:\\:getValue\\(\\) should return string but returns float\\.$#"
+			count: 1
+			path: Model/Feed/Column/SpecialPrice.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\SpecialPrice\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/SpecialPrice.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\SpecialPrice\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/SpecialPrice.php
+
+		-
+			message: "#^Call to an undefined method Magento\\\\Framework\\\\Model\\\\ResourceModel\\\\Db\\\\AbstractDb\\:\\:getAttribute\\(\\)\\.$#"
+			count: 1
+			path: Model/Feed/Column/Standard.php
+
+		-
+			message: "#^Magento\\\\Catalog\\\\Model\\\\Product\\:\\:getResource\\(\\) is deprecated\\. Use Resource Models directly$#"
+			count: 1
+			path: Model/Feed/Column/Standard.php
+
+		-
+			message: "#^Call to an undefined method Magento\\\\Catalog\\\\Model\\\\Product\\\\Type\\\\AbstractType\\:\\:getSalableUsedProducts\\(\\)\\.$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\StockQty\\:\\:getValue\\(\\) should return string but returns float\\.$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\StockQty\\:\\:getValue\\(\\) should return string but returns float\\|int\\.$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\StockQty\\:\\:getValue\\(\\) should return string but returns int\\.$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\StockQty\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\StockQty\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/StockQty.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Url\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ColumnInterface\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Url.php
+
+		-
+			message: "#^Return type \\(string\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Url\\:\\:getValue\\(\\) should be compatible with return type \\(object\\) of method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Column\\\\Standard\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: Model/Feed/Column/Url.php
+
+		-
+			message: "#^Call to an undefined method Magento\\\\Catalog\\\\Model\\\\ResourceModel\\\\Attribute\\:\\:getAttributeCode\\(\\)\\.$#"
+			count: 1
+			path: Model/Feed/ColumnFactory.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Product\\:\\:getAttributeNames\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Feed/Product.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Product\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Feed/Product.php
+
+		-
+			message: "#^Property Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Product\\:\\:\\$entityCollection \\(Magento\\\\Catalog\\\\Model\\\\ResourceModel\\\\Product\\\\Collection\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: Model/Feed/Product.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between false and true will always evaluate to false\\.$#"
+			count: 1
+			path: Model/Feed/Product.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\ProductToColumnMapper\\:\\:getProductDataArray\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: Model/Feed/ProductToColumnMapper.php
+
+		-
+			message: "#^Constructor of class Recolize\\\\RecommendationEngine\\\\Model\\\\Feed\\\\Writer has an unused parameter \\$destination\\.$#"
+			count: 1
+			path: Model/Feed/Writer.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Model\\\\User\\:\\:getCustomerId\\(\\) should return int\\|null but returns string\\.$#"
+			count: 1
+			path: Model/User.php
+
+		-
+			message: "#^Property Recolize\\\\RecommendationEngine\\\\Model\\\\User\\:\\:\\$customerSession \\(Magento\\\\Customer\\\\Model\\\\Session\\\\Proxy\\) does not accept Magento\\\\Customer\\\\Model\\\\Session\\.$#"
+			count: 1
+			path: Model/User.php
+
+		-
+			message: "#^Parameter \\#1 \\$userId of method Recolize\\\\RecommendationEngine\\\\Model\\\\Cookie\\\\UserData\\:\\:setUserId\\(\\) expects int, null given\\.$#"
+			count: 1
+			path: Observer/ResetUserDataInCookie.php
+
+		-
+			message: "#^Method Recolize\\\\RecommendationEngine\\\\Setup\\\\Patch\\\\Data\\\\GenerateFeedPatch\\:\\:apply\\(\\) should return \\$this\\(Recolize\\\\RecommendationEngine\\\\Setup\\\\Patch\\\\Data\\\\GenerateFeedPatch\\) but return statement is missing\\.$#"
+			count: 1
+			path: Setup/Patch/Data/GenerateFeedPatch.php
