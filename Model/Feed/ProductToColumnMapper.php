@@ -43,25 +43,25 @@ class ProductToColumnMapper
     /**
      * Return array with mapping of product data to feed columns.
      *
-     * @param \Magento\Catalog\Api\Data\ProductInterface $product
+     * @param \Magento\Catalog\Api\Data\ProductInterface&\Magento\Catalog\Model\Product $product
      * @param array $attributes
      *
-     * @return array
+     * @return array<string,string>
      */
-    public function getProductDataArray(ProductInterface $product, array $attributes)
+    public function getProductDataArray(ProductInterface $product, array $attributes): array
     {
-        $productData = array();
+        $productData = [];
         $attributesToExclude = $this->getAttributesToExclude();
 
         foreach ($attributes as $attributeCode => $attribute) {
-            if (in_array($attributeCode, $attributesToExclude) === true) {
+            if (in_array($attributeCode, $attributesToExclude)) {
                 continue;
             }
 
             $column = $this->columnFactory->create($product, $attribute);
             $columnValue = $column->getValue();
 
-            if ($this->isValidColumnValue($columnValue) === false) {
+            if (! $this->isValidColumnValue($columnValue)) {
                 continue;
             }
 
@@ -71,16 +71,12 @@ class ProductToColumnMapper
         return $productData;
     }
 
-    /**
-     * Return all attributes to be excluded.
-     *
-     * @return array
-     */
-    private function getAttributesToExclude()
+    /** @return list<string> */
+    private function getAttributesToExclude(): array
     {
         $attributesToExclude = $this->scopeConfig->getValue('recolize_recommendation_engine/product_feed/attributes_to_exclude');
-        if (empty($attributesToExclude) === true) {
-            return array();
+        if (empty($attributesToExclude)) {
+            return [];
         }
 
         return explode(',', $attributesToExclude);
@@ -89,20 +85,14 @@ class ProductToColumnMapper
     /**
      * Check if given column value is valid.
      *
-     * @param object $value
-     *
-     * @return boolean
+     * @param mixed $value
      */
-    private function isValidColumnValue($value)
+    private function isValidColumnValue($value): bool
     {
         if (empty($value) === false && is_numeric($value) === false && is_string($value) === false) {
             return false;
         }
 
-        if (is_array($value) === true) {
-            return false;
-        }
-
-        return true;
+        return ! is_array($value);
     }
 }
