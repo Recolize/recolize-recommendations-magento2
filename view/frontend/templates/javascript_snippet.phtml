@@ -20,7 +20,7 @@
         require([
             'jquery'
         ], function ($) {
-            <?php echo $this->getJavascriptSnippetCode(); ?>
+            <?= /* @noEscape */ $this->getJavascriptSnippetCode() ?>
         });
         // ]]>
     </script>

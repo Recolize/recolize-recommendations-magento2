@@ -17,6 +17,6 @@
     <script type="text/javascript">
         var RecolizeParameters = RecolizeParameters || {};
         RecolizeParameters['specialPageType'] = 'category';
-        RecolizeParameters['categoryId'] = '<?php echo $this->getCategory()->getId(); ?>';
+        RecolizeParameters['categoryId'] = '<?= /* @noEscape */ $this->getCategory()->getId() ?>';
     </script>
 <?php endif; ?>

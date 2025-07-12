@@ -23,7 +23,7 @@
         RecolizeParameters['saleData'] = {};
 
         <?php foreach ($orderItems as $orderItem): ?>
-            RecolizeParameters['saleData']['<?php echo $orderItem->getProductId() ?>'] = '<?php echo $orderItem->getRowTotal() ?>';
+            RecolizeParameters['saleData']['<?= /* @noEscape */ $orderItem->getProductId() ?>'] = '<?= /* @noEscape */ $orderItem->getRowTotal() ?>';
         <?php endforeach; ?>
     </script>
 <?php endif; ?>

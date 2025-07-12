@@ -38,18 +38,18 @@
   "require-dev": {
     "roave/security-advisories": "dev-latest",
     "magento/magento-coding-standard": "*",
-    "phpstan/phpstan": "^1.10",
-    "bitexpert/phpstan-magento": "^0.30.1",
+    "phpstan/phpstan": "^1.12",
+    "bitexpert/phpstan-magento": "^0.32",
     "phpstan/extension-installer": "^1.4"
   },
   "scripts": {
     "post-install-cmd": [
-      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,vendor/phpcompatibility/php-compatibility)"
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,../../magento/php-compatibility-fork)"
     ],
     "post-update-cmd": [
-      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,vendor/phpcompatibility/php-compatibility)"
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/,../../magento/php-compatibility-fork)"
     ]
-  },
+},
   "repositories": [
     {
       "type": "composer",
