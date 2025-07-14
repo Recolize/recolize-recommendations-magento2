@@ -41,7 +41,7 @@ parameters:
 			path: Model/Feed.php
 
 		-
-			message: "#^Parameter \\#3 \\$scopeCode of method Magento\\\\Framework\\\\App\\\\Config\\\\ScopeConfigInterface\\:\\:isSetFlag\\(\\) expects int\\|string\\|null, Magento\\\\Store\\\\Api\\\\Data\\\\StoreInterface given\\.$#"
+			message: "#^Parameter \\#3 \\$scopeCode of method Magento\\\\Framework\\\\App\\\\Config\\\\ScopeConfigInterface\\:\\:isSetFlag\\(\\) expects int\\|Magento\\\\Framework\\\\App\\\\ScopeInterface\\|string\\|null, Magento\\\\Store\\\\Api\\\\Data\\\\StoreInterface given\\.$#"
 			count: 1
 			path: Model/Feed.php
 
@@ -87,11 +87,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$file of method Magento\\\\Catalog\\\\Helper\\\\Image\\:\\:setImageFile\\(\\) expects string, object given\\.$#"
-			count: 1
-			path: Model/Feed/Column/Image.php
-
-		-
-			message: "#^Parameter \\#3 \\$scopeCode of method Magento\\\\Framework\\\\App\\\\Config\\\\ScopeConfigInterface\\:\\:getValue\\(\\) expects int\\|string\\|null, Magento\\\\Store\\\\Model\\\\Store given\\.$#"
 			count: 1
 			path: Model/Feed/Column/Image.php
 
