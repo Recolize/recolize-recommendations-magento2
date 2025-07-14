@@ -17,6 +17,6 @@
     <script type="text/javascript">
         var RecolizeParameters = RecolizeParameters || {};
         RecolizeParameters['specialPageType'] = 'item-detail';
-        RecolizeParameters['currentItemId'] = '<?php echo $this->getProduct()->getId(); ?>';
+        RecolizeParameters['currentItemId'] = '<?= /* @noEscape */ $this->getProduct()->getId() ?>';
     </script>
 <?php endif; ?>

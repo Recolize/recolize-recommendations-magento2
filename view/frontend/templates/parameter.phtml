@@ -17,11 +17,11 @@
     <script type="text/javascript">
         var RecolizeParameters = RecolizeParameters || {};
         RecolizeParameters['User'] = RecolizeParameters['User'] || {};
-        RecolizeParameters['User']['status'] = '<?php echo $this->getDefaultUserStatus(); ?>';
-        RecolizeParameters['User']['group'] = '<?php echo $this->getDefaultUserGroup(); ?>';
+        RecolizeParameters['User']['status'] = '<?= /* @noEscape */ $this->getDefaultUserStatus() ?>';
+        RecolizeParameters['User']['group'] = '<?= /* @noEscape */ $this->getDefaultUserGroup() ?>';
 
         try {
-            var cookieValue = document.cookie.match(new RegExp('<?php echo $this->getCookieName(); ?>=([^;]+)'));
+            var cookieValue = document.cookie.match(new RegExp('<?= /* @noEscape */ $this->getCookieName() ?>=([^;]+)'));
 
             if (cookieValue !== null) {
                 cookieValue = JSON.parse(decodeURIComponent((cookieValue[1]).replace(/\+/g, '%20')));
@@ -39,7 +39,7 @@
 
                         var cleanedRecolizeParameters = {};
                         cleanedRecolizeParameters['User'] = RecolizeParameters['User'];
-                        document.cookie = '<?php echo $this->getCookieName(); ?>=' + encodeURIComponent(JSON.stringify(cleanedRecolizeParameters)) + '; path=/';
+                        document.cookie = '<?= /* @noEscape */ $this->getCookieName() ?>=' + encodeURIComponent(JSON.stringify(cleanedRecolizeParameters)) + '; path=/';
                     }
                 }
             }
